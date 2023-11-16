@@ -43,4 +43,4 @@ for n in range(1,q+1):
     
 # Impressão da saída
 for item in resultados:
-    print(item) 
+    print(item)
