@@ -1,13 +1,9 @@
 ###################################################
 # MC102 - Algoritmos e Programação de Computadores
 # Laboratório 13 - Amigos do 495
-# Nome:
-# RA:
+# Nome: Marcos Vinicius de Carvalho Araujo
+# RA: 242711
 ###################################################
-
-# Leitura da sequência
-numeros = [int(i) for i in input().split()]
-# Ordenação dos amigos do 495
 
 def difença(numero):
     numero_str = str(numero)
@@ -24,31 +20,26 @@ def mais_amigos(numero, qtd_interacoes):
     else:
         return mais_amigos(numero_analisado, qtd_interacoes)
 
-# def ordena_amigos(numeros, lista_qtdIteracoes):
-#     for index in range(len(numero)):
-    
+def bubbleSort(lista_it, lista_num):
+    n = len(lista_it)
+    for i in range(n-1, 0, -1):
+        for j in range(i):
+            if lista_it[j] > lista_it[j + 1]:
+                lista_it[j], lista_it[j + 1] = lista_it[j+1], lista_it[j]
+                lista_num[j], lista_num[j + 1] = lista_num[j+1], lista_num[j]
+            elif lista_it[j] == lista_it[j + 1] and lista_num[j] > lista_num[j + 1]:
+                lista_it[j], lista_it[j + 1] = lista_it[j+1], lista_it[j]
+                lista_num[j], lista_num[j + 1] = lista_num[j+1], lista_num[j]
+                
+# Leitura da sequência
+numeros = [int(i) for i in input().split()]
 
+# Ordenação dos amigos do 495                
 lista_qtdIteracoes = []
-
 for numero in numeros:
     aux = mais_amigos(numero, 0)
-    lista_qtdIteracoes.append(aux)
-    
-print(lista_qtdIteracoes)
-    
-    
-        
-    
-    
-            
-
+    lista_qtdIteracoes.append(aux)    
+bubbleSort(lista_qtdIteracoes, numeros)
 
 # Impressão da resposta
-
-# 1 ordenar os numeros para comparação
-    # analisar cada um separadamente
-    # organizar de forma crescente e decrescente
-   
-# 2 criar a recursão
-    # analisar quantas iterações o numero realizou até chegar no 495
-# 3 comparar iterações entre os numeros
+print(*numeros)
